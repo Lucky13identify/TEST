@@ -1,9 +1,37 @@
-const doMath = function (a, b, c, callback) {
-  return callback(a, b, c);
+const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Dragon breath", price: 780 },
+    { name: "Stone skin", price: 520 },
+  ],
+  // Change code below this line
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    this.potions.includes(newPotion)
+      ? console.log(`Error! Potion ${newPotion} is already in your inventory!`)
+      : this.potions.push(newPotion);
+  },
+  removePotion(potionName) {
+    const potionIndex = this.potions.indexOf(potionName);
+
+    if (potionIndex === -1) {
+      return `Potion ${potionName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1);
+  },
+  updatePotionName(oldName, newName) {
+    const potionIndex = this.potions.indexOf(oldName);
+
+    if (potionIndex === -1) {
+      return `Potion ${oldName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1, newName);
+  },
+  // Change code above this line
 };
 
-const plus = function (x, y, z) {
-  return x + y + z;
-};
-
-console.log(doMath(3, 5, 4, plus));
+console.log(atTheOldToad.addPotion({ name: "Stone skin", price: 240 }));
