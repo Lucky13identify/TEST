@@ -1,37 +1,11 @@
-const atTheOldToad = {
-  potions: [
-    { name: "Speed potion", price: 460 },
-    { name: "Dragon breath", price: 780 },
-    { name: "Stone skin", price: 520 },
-  ],
-  // Change code below this line
-  getPotions() {
-    return this.potions;
-  },
-  addPotion(newPotion) {
-    this.potions.includes(newPotion)
-      ? console.log(`Error! Potion ${newPotion} is already in your inventory!`)
-      : this.potions.push(newPotion);
-  },
-  removePotion(potionName) {
-    const potionIndex = this.potions.indexOf(potionName);
+function makeNegative(num) {
+  if (num < 0) {
+    return num;
+  } else if (num > 0) {
+    return -+num;
+  } else {
+    return num;
+  }
+}
 
-    if (potionIndex === -1) {
-      return `Potion ${potionName} is not in inventory!`;
-    }
-
-    this.potions.splice(potionIndex, 1);
-  },
-  updatePotionName(oldName, newName) {
-    const potionIndex = this.potions.indexOf(oldName);
-
-    if (potionIndex === -1) {
-      return `Potion ${oldName} is not in inventory!`;
-    }
-
-    this.potions.splice(potionIndex, 1, newName);
-  },
-  // Change code above this line
-};
-
-console.log(atTheOldToad.addPotion({ name: "Stone skin", price: 240 }));
+console.log(makeNegative(0));
